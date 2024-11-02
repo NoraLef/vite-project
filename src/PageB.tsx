@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import { Button } from "@/components/ui/button"
+import { SelectScrollable } from "@/SelectScrollable"
 
 function PageB() {
   return (
@@ -7,6 +9,8 @@ function PageB() {
       <p>
         Bye bye !
       </p>
+      <Button>Click me</Button>
+      <SelectScrollable />
       <Link to="/PageC">PageC</Link>
     </>
   )

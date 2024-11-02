@@ -2,9 +2,9 @@ import React from 'react'
 import './App.css'
 import { createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider } from 'react-router-dom'
 
-const PageA = React.lazy(() => import("./PageA"));
-const PageB = React.lazy(() => import("./PageB"));
-const PageC = React.lazy(() => import("./PageC"));
+const PageA = React.lazy(() => import("@/PageA"));
+const PageB = React.lazy(() => import("@/PageB"));
+const PageC = React.lazy(() => import("@/PageC"));
 
 const router = createBrowserRouter(
   createRoutesFromElements(
