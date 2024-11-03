@@ -9,5 +9,9 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "types": [
+      "@vitest/browser/providers/webdriverio",
+      "@vitest/browser/providers/playwright"
+    ]
   }
 }

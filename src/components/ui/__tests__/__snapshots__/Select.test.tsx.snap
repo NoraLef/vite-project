@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Select > should render 1`] = `
+<body>
+  
+    
+  
+  
+
+
+  <div>
+    <select
+      aria-hidden="true"
+      style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;"
+      tabindex="-1"
+    >
+      <option
+        value=""
+      />
+    </select>
+  </div>
+</body>
+`;
