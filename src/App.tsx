@@ -1,36 +1,38 @@
 import React from 'react'
 import './App.css'
-import { createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
-const PageA = React.lazy(() => import("@/PageA"));
-const PageB = React.lazy(() => import("@/PageB"));
-const PageC = React.lazy(() => import("@/PageC"));
+const lazyRoute = <T = any>(
+  importFn: () => Promise<T>,
+  componentName: keyof T
+) => async () => {
+  const module = await importFn();
+  return { Component: module[componentName] };
+};
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<><nav>
-      <div className="menu">
-        <Link to="/PageA">PageA</Link>
-        <Link to="/PageB">PageB</Link>
-        <Link to="/PageC">PageC</Link>
-      </div>
-    </nav>
-  <Outlet /></>}>
-      <Route path="PageA" element={<PageA />} />
-      <Route path="PageB" element={<PageB />} />
-      <Route path="PageC" element={<PageC />} />
-    </Route>
-  )
-)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    lazy: lazyRoute(() => import("@/PageA"), "default")
+  },
+  {
+    path: "/PageA",
+    lazy: lazyRoute(() => import("@/PageA"), "default")
+  },
+  {
+    path: "/PageB",
+    lazy: lazyRoute(() => import("@/PageB"), "default")
+  },
+  {
+    path: "/PageC",
+    lazy: lazyRoute(() => import("@/PageC"), "default")
+  },
+]);
 
 function App() {
   return (
-    <>
-      <React.Suspense fallback={<div>Loading...</div>}>
-        <RouterProvider router={router}/>
-      </React.Suspense>
-    </>
+        <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />
   )
 }
 
-export default App
+export default App;
