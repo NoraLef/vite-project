@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/31</span>
+                <span class='fraction'>0/33</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/31</span>
+                <span class='fraction'>0/33</span>
             </div>
         
             
@@ -99,23 +99,12 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -128,6 +117,21 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -137,40 +141,42 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" >import React from 'react'</span></span></span>
 <span class="cstat-no" title="statement not covered" >import './App.css'</span>
-<span class="cstat-no" title="statement not covered" >import { createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider } from 'react-router-dom'</span>
+<span class="cstat-no" title="statement not covered" >import { createBrowserRouter, RouterProvider } from 'react-router-dom'</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const PageA = React.lazy(() =&gt; import("@/PageA"));</span>
-<span class="cstat-no" title="statement not covered" >const PageB = React.lazy(() =&gt; import("@/PageB"));</span>
-<span class="cstat-no" title="statement not covered" >const PageC = React.lazy(() =&gt; import("@/PageC"));</span>
+<span class="cstat-no" title="statement not covered" >const lazyRoute = &lt;T = any&gt;(</span>
+<span class="cstat-no" title="statement not covered" >  importFn: () =&gt; Promise&lt;T&gt;,</span>
+<span class="cstat-no" title="statement not covered" >  componentName: keyof T</span>
+<span class="cstat-no" title="statement not covered" >) =&gt; async () =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >  const module = await importFn();</span>
+<span class="cstat-no" title="statement not covered" >  return { Component: module[componentName] };</span>
+<span class="cstat-no" title="statement not covered" >};</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const router = createBrowserRouter(</span>
-<span class="cstat-no" title="statement not covered" >  createRoutesFromElements(</span>
-<span class="cstat-no" title="statement not covered" >    &lt;Route path="/" element={&lt;&gt;&lt;nav&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;div className="menu"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Link to="/PageA"&gt;PageA&lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Link to="/PageB"&gt;PageB&lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;Link to="/PageC"&gt;PageC&lt;/Link&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/div&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/nav&gt;</span>
-<span class="cstat-no" title="statement not covered" >  &lt;Outlet /&gt;&lt;/&gt;}&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Route path="PageA" element={&lt;PageA /&gt;} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Route path="PageB" element={&lt;PageB /&gt;} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;Route path="PageC" element={&lt;PageC /&gt;} /&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/Route&gt;</span>
-<span class="cstat-no" title="statement not covered" >  )</span>
-<span class="cstat-no" title="statement not covered" >)</span>
+<span class="cstat-no" title="statement not covered" >const router = createBrowserRouter([</span>
+<span class="cstat-no" title="statement not covered" >  {</span>
+<span class="cstat-no" title="statement not covered" >    path: "/",</span>
+<span class="cstat-no" title="statement not covered" >    lazy: lazyRoute(() =&gt; import("@/PageA"), "default")</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  {</span>
+<span class="cstat-no" title="statement not covered" >    path: "/PageA",</span>
+<span class="cstat-no" title="statement not covered" >    lazy: lazyRoute(() =&gt; import("@/PageA"), "default")</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  {</span>
+<span class="cstat-no" title="statement not covered" >    path: "/PageB",</span>
+<span class="cstat-no" title="statement not covered" >    lazy: lazyRoute(() =&gt; import("@/PageB"), "default")</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >  {</span>
+<span class="cstat-no" title="statement not covered" >    path: "/PageC",</span>
+<span class="cstat-no" title="statement not covered" >    lazy: lazyRoute(() =&gt; import("@/PageC"), "default")</span>
+<span class="cstat-no" title="statement not covered" >  },</span>
+<span class="cstat-no" title="statement not covered" >]);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >function App() {</span>
 <span class="cstat-no" title="statement not covered" >  return (</span>
-<span class="cstat-no" title="statement not covered" >    &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;React.Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;RouterProvider router={router}/&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/React.Suspense&gt;</span>
-<span class="cstat-no" title="statement not covered" >    &lt;/&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;RouterProvider router={router} fallbackElement={&lt;p&gt;Loading...&lt;/p&gt;} /&gt;</span>
   )
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default App</span>
+<span class="cstat-no" title="statement not covered" >export default App;</span>
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -178,7 +184,7 @@
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-03T17:47:01.144Z
+                at 2024-12-14T17:00:00.420Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
